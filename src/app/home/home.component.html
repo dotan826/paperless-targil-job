@@ -1,0 +1,27 @@
+
+<form class="text-center border border-light p-5" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+
+  <p class="h4 mb-4">Contact us</p>
+
+  <div class="md-form">
+    <!-- Name -->
+    <input type="text" formControlName="contactName" id="contactFormName" mdbInput class="form-control mb-4" placeholder="Name" (input)="checkSubmitButton()">
+    <mdb-error *ngIf="contactForm.controls['contactName'].invalid &&
+          (contactForm.controls['contactName'].dirty || contactForm.controls['contactName'].touched)">Name invalid</mdb-error>
+    <mdb-success *ngIf="contactForm.controls['contactName'].valid &&
+          (contactForm.controls['contactName'].dirty || contactForm.controls['contactName'].touched)">Name valid</mdb-success>
+  </div>
+
+  <div class="md-form">
+    <!-- Email -->
+    <input type="email" formControlName="contactEmail" id="contactFormEmail" mdbInput class="form-control mb-4" placeholder="E-mail" (input)="checkSubmitButton()">
+    <mdb-error *ngIf="contactForm.controls['contactEmail'].invalid &&
+          (contactForm.controls['contactEmail'].dirty || contactForm.controls['contactEmail'].touched)">Email invalid</mdb-error>
+    <mdb-success *ngIf="contactForm.controls['contactEmail'].valid &&
+          (contactForm.controls['contactEmail'].dirty || contactForm.controls['contactEmail'].touched)">Email valid</mdb-success>
+  </div>
+
+  <!-- Send button -->
+  <button mdbBtn color="info" class="z-depth-0 my-4 waves-effect" mdbWavesEffect type="submit" [disabled]="submitButton">Send</button>
+
+</form>
