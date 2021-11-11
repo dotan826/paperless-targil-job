@@ -21,6 +21,14 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+  }
+
+  /**
+   * Clear Local Storage for testing purposes.
+   */
+  clear = () => {
+    window.localStorage.clear();
   }
 
   /**
@@ -65,7 +73,7 @@ export class HomeComponent implements OnInit {
         (result) => {
           this.contactForm.reset();    // set all fields to null
           this.submitButton = true;     // enable submit button
-          this.router.navigateByUrl("result/" + result.name).then((state) => {
+          this.router.navigateByUrl("result/" + user.name).then((state) => {
             if(!state){
               window.alert("There was an error in navigation. pls try again in a few moments.");  // if navigation fails
             }
